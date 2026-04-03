@@ -1,148 +1,122 @@
-# NetScan Pro — Network Port Scanner GUI
+<h1 align="center">NetScan Pro</h1>
+<p align="center">A fast TCP port scanner with a modern dark-themed GUI built with Python & Tkinter</p>
 
-A fast TCP port scanner with a modern dark-themed graphical user interface built with Python and Tkinter.
-
-## What's New (Latest Update)
-
-### GUI Overhaul — NetScan Pro
-The application has been fully redesigned with a professional dark theme inspired by modern developer tooling. Key visual and functional improvements include:
-
-- **Rebranded as *NetScan Pro*** with a branded header, radar/target icon, and keyboard-shortcut hints
-- **Full dark theme** — custom `#0d1117` deep background, surface cards, and a consistent colour palette throughout
-- **Custom animated buttons** — `Start Scan`, `Stop`, `Clear`, and `Save Results` buttons with hover and press colour transitions
-- **Live animated progress bar** — custom-drawn bar showing a real-time percentage label (`0%` → `100%`)
-- **Status badge** — colour-coded pill that changes dynamically: grey = Idle, blue = Scanning, green = Completed, amber = Stopped/Stopping
-- **Live stats row** — Open Ports, Errors, Elapsed Time, and Scan Rate displayed as live-updating stat blocks with icons
-- **Improved Scan Console** — welcome message on launch, separator lines between scans, bold open-port rows, better visual hierarchy
-- **Richer saved reports** — saved `.txt` files now include target host, scan date/time, and summary totals
-- **New scan profile** — added *Full Scan* (ports 1–65535) to the profile presets dropdown
-- **Python 3.14 compatibility fix** — replaced the `tk.Canvas`-based button implementation with a `tk.Frame + tk.Label` approach to resolve a ``_tkinter.TclError`` that occurred on Python 3.14 when canvas drawing commands were called before widget placement
+<p align="center">
+  <img src="https://img.shields.io/badge/Python-3.7%2B-blue?style=for-the-badge&logo=python&logoColor=white" />
+  <img src="https://img.shields.io/badge/Platform-Windows%20%7C%20macOS%20%7C%20Linux-lightgrey?style=for-the-badge" />
+</p>
 
 ---
 
-## Features
-
-- **Modern dark UI** – professional GitHub-style dark theme with surface cards, borders, and accent colours
-- **Profile presets** – instantly set port ranges with: Custom, Top 100, Top 1000, Common Web, Full Scan
-- **Fixed worker-pool scanning** – efficient concurrent scanning (up to 500 threads) without creating one thread per port
-- **Service identification** – automatically labels well-known ports (FTP, SSH, HTTP, HTTPS, MySQL, RDP, VNC, etc.)
-- **Real-time progress** – animated progress bar with percentage, elapsed-time counter, and scan-rate (ports/sec) update live
-- **Status badge** – colour-coded pill reflects the current scan state at a glance
-- **Stop at any time** – cancel a running scan gracefully with the Stop button or `Esc`
-- **Runtime error visibility** – scan errors shown in the console with a final hidden-error count
-- **Save results** – export discovered open ports to a `.txt` file with target, timestamp, and totals
-- **Keyboard shortcuts** – `Enter` to start, `Ctrl+S` to save, `Esc` to stop
-- **Cross-platform** – runs on Windows, macOS, and Linux (Python 3.7+)
-
----
-
-## Requirements
-
-- Python **3.7 or newer** (tested up to Python 3.14)
-- Tkinter (included in the standard Python distribution; on Debian/Ubuntu install `python3-tk`)
-
-No third-party packages are required.
-
----
-
-## Installation
+## ⚡ Quick Start
 
 ```bash
-git clone https://github.com/techtrainer20/nmap_portscan_gui.git
-cd nmap_portscan_gui
-```
-
----
-
-## Usage
-
-```bash
+git clone https://github.com/mohanraj9342/NetScan-NMAP_GUI.git
+cd NetScan-NMAP_GUI
 python portscanergui.py
 ```
 
-1. Enter the **Target** — an IP address (e.g. `192.168.1.1`) or hostname (e.g. `scanme.nmap.org`).
-2. Choose a **Profile** from the dropdown or manually set **Start Port** and **End Port**.
-3. Click **▶ Start Scan** (or press `Enter`). Open ports appear in real time in the Scan Console.
-4. Click **■ Stop** (or press `Esc`) to cancel a scan early.
-5. After a scan completes, click **💾 Save Results** (or press `Ctrl+S`) to export the open-port list.
+> **Requires:** Python 3.7+ · Tkinter (built-in on most systems)
+> On Debian/Ubuntu: `sudo apt install python3-tk`
 
 ---
 
-## Detected Services
+## ✨ Features
 
-The following ports are automatically labelled:
-
-| Port | Service   |
-|------|-----------|
-| 21   | FTP       |
-| 22   | SSH       |
-| 23   | Telnet    |
-| 25   | SMTP      |
-| 53   | DNS       |
-| 80   | HTTP      |
-| 110  | POP3      |
-| 143  | IMAP      |
-| 443  | HTTPS     |
-| 3306 | MySQL     |
-| 3389 | RDP       |
-| 5900 | VNC       |
-| 8080 | HTTP-Alt  |
-
-Ports not in the list are reported as `Unknown`.
+| Feature | Description |
+|---|---|
+| 🎨 **Dark UI** | GitHub-style dark theme with surface cards and accent colours |
+| ⚙️ **Profile Presets** | One-click ranges: Custom, Top 100, Top 1000, Common Web, Full Scan |
+| ⚡ **Fast Scanning** | Up to 500 concurrent threads with a fixed worker-pool |
+| 🏷️ **Service Labels** | Auto-identifies FTP, SSH, HTTP, HTTPS, MySQL, RDP, VNC & more |
+| 📊 **Live Progress** | Animated bar with %, scan rate (ports/sec), and elapsed time |
+| 🔴 **Status Badge** | Colour-coded pill: grey = Idle · blue = Scanning · green = Done · amber = Stopped |
+| 💾 **Save Results** | Export open ports to `.txt` with target, timestamp & totals |
+| ⌨️ **Keyboard Shortcuts** | `Enter` start · `Esc` stop · `Ctrl+S` save |
 
 ---
 
-## Project Structure
+## 🖥️ How to Use
+
+1. **Enter a target** — IP address (`192.168.1.1`) or hostname (`scanme.nmap.org`)
+2. **Pick a profile** from the dropdown, or type a custom port range
+3. Press **▶ Start Scan** or hit `Enter`
+4. Watch open ports appear live in the Scan Console
+5. Press **■ Stop** or `Esc` to cancel at any time
+6. Click **💾 Save Results** or `Ctrl+S` to export when done
+
+---
+
+## 🔍 Detected Services
+
+<details>
+<summary>Click to expand port → service map</summary>
+
+| Port | Service  | Port | Service  |
+|------|----------|------|----------|
+| 21   | FTP      | 143  | IMAP     |
+| 22   | SSH      | 443  | HTTPS    |
+| 23   | Telnet   | 3306 | MySQL    |
+| 25   | SMTP     | 3389 | RDP      |
+| 53   | DNS      | 5900 | VNC      |
+| 80   | HTTP     | 8080 | HTTP-Alt |
+| 110  | POP3     |      |          |
+
+> Ports not in this list are reported as `Unknown`
+
+</details>
+
+---
+
+## 🗂️ Project Structure
 
 ```
-nmap_portscan_gui/
-├── portscanergui.py   # Main application (scanner + GUI)
-├── docs/              # GitHub Pages website folder
-│   ├── index.html
-│   ├── styles.css
-│   └── .nojekyll
+NetScan-NMAP_GUI/
+├── portscanergui.py   ← Main app (scanner + GUI)
 └── README.md
 ```
 
 ---
 
-## GitHub Pages Hosting
-
-This project includes a ready-to-host website in the `docs` folder.
-
-1. Push this repository to GitHub.
-2. Open your repository on GitHub.
-3. Go to **Settings > Pages**.
-4. Under **Build and deployment**, choose:
-   - **Source**: Deploy from a branch
-   - **Branch**: `main` (or your default branch)
-   - **Folder**: `/docs`
-5. Save the settings and wait for deployment.
-
-After deployment, your project website will be available at:
-
-`https://<your-username>.github.io/<your-repository-name>/`
-
----
-
-## Roadmap
+## 🗺️ Roadmap
 
 - [x] Scan profile presets (Top 100, Top 1000, Common Web, Full Scan)
-- [x] Modern dark-themed GUI with live animated progress
-- [x] Status badge, live stat counters, and keyboard shortcuts
-- [x] Python 3.14 compatibility
-- [ ] Export results in CSV and JSON formats
-- [ ] Optional banner grabbing for deeper service fingerprinting
-- [ ] **AI API Integration** *(Coming Soon)* — We plan to integrate a free AI API (e.g. Google Gemini or OpenAI) to automatically analyse scan results and generate a **full human-readable security report**, highlighting open ports, potential vulnerabilities, and recommended remediation steps — all from within the app.
+- [x] Modern dark-themed GUI with animated progress bar
+- [x] Live status badge, stat counters & keyboard shortcuts
+- [x] Python 3.14 compatibility fix
+- [ ] Export results as CSV / JSON
+- [ ] Banner grabbing for deeper service fingerprinting
+- [ ] **🤖 AI API Integration** *(Coming Soon)* — Integrate Google Gemini / OpenAI to auto-generate a full security report from scan results, highlighting risks and remediation steps
 
 ---
 
-## Disclaimer
+## 📋 Changelog
 
-Use this tool only on hosts and networks you own or have explicit permission to scan. Unauthorized port scanning may be illegal in your jurisdiction.
+<details>
+<summary><strong>v2.0 — GUI Overhaul (Latest)</strong></summary>
+
+- Rebranded to **NetScan Pro** with radar icon and keyboard-shortcut hints in header
+- Full dark theme (`#0d1117` base) with card panels and consistent colour palette
+- Custom `DarkButton` with hover & press colour transitions
+- `AnimatedProgressBar` with live percentage label
+- `StatusBadge` colour-coded pill for scan state
+- Live stats row: Open Ports · Errors · Elapsed · Scan Rate
+- Improved Scan Console with welcome message and scan separators
+- Richer `.txt` exports (target, date, totals)
+- Added **Full Scan** profile (ports 1–65535)
+- Fixed `_tkinter.TclError` crash on **Python 3.14**
+
+</details>
 
 ---
 
-## License
+## ⚠️ Disclaimer
 
-This project is released under the [MIT License](https://opensource.org/licenses/MIT).
+> Use this tool **only** on hosts and networks you own or have explicit permission to scan.
+> Unauthorized port scanning may be illegal in your jurisdiction.
+
+---
+
+## 📄 License
+
+Released under the [MIT License](https://opensource.org/licenses/MIT).
