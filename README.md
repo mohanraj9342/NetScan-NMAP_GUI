@@ -1,4 +1,4 @@
-<h1 align="center">NetScan Pro</h1>
+<h1 align="center">NetScan NMAP_GUI</h1>
 <p align="center">A fast TCP port scanner with a modern dark-themed GUI built with Python & Tkinter</p>
 
 <p align="center">
